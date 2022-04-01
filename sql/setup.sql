@@ -7,5 +7,5 @@ CREATE TABLE users (
     id BIGINT GENERATED ALWAYS AS IDENTITY,
     email TEXT,
     username TEXT NOT NULL PRIMARY KEY,
-    avatar TEXT,
+    avatar TEXT
 );
