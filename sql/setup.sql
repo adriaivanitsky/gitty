@@ -9,3 +9,11 @@ CREATE TABLE users (
     username TEXT NOT NULL PRIMARY KEY,
     avatar TEXT
 );
+
+DROP TABLE IF EXISTS posts;
+
+CREATE TABLE posts (
+    id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    text TEXT NOT NULL,
+    username TEXT REFERENCES users(username)
+);
