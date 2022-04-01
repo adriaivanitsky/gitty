@@ -21,6 +21,12 @@ describe('gitty routes', () => {
   });
 
   test('creates a new user', async () => {
-    const user = await request(app).post('/api/v1/users').send();
+    const resp = await request(app).post('/api/v1/users').send(mockUser);
+    expect(resp.body).toEqual({
+      id: expect.any(String),
+      email: 'mock@user.com',
+      username: 'adria',
+      avatar: 'text',
+    });
   });
 });
