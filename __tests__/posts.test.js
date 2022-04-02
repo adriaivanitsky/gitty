@@ -16,14 +16,14 @@ describe('gitty routes', () => {
     pool.end();
   });
 
-  test.skip('should create a post', async () => {
+  test('should create a post', async () => {
     await User.insert({ username: 'adria', email: 'mock@user.com' });
     await agent.get('/api/v1/users/login/callback?code=42').redirects(1);
     const resp = await agent.post('/api/v1/posts').send({ text: 'text' });
     expect(resp.body).toEqual({
-      id: 1,
+      id: expect.any(String),
       text: 'text',
-      username: 'adria',
+      username: expect.any(String),
     });
   });
 });

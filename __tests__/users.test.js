@@ -23,7 +23,7 @@ describe('gitty routes', () => {
     );
   });
 
-  it('should login and redirect users to /api/v1/posts', async () => {
+  it.skip('should login and redirect users to /api/v1/posts', async () => {
     const res = await request
       .agent(app)
       .get('/api/v1/users/login/callback?code=42')
